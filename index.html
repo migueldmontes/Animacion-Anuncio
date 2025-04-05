@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anuncio con animaciones</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background-color: #111;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: white;
+      position: relative;
+    }
+
+    .background {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1600&q=80'); /* Coches */
+      background-repeat: repeat-x;
+      background-size: cover;
+      animation: slidebg 10s linear infinite;
+      z-index: 0;
+    }
+
+    .logo {
+      position: relative;
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 40px;
+      z-index: 1;
+      animation: slidein 2s ease-out forwards;
+    }
+
+    .slogan {
+      position: relative;
+      font-size: 2rem;
+      margin-left: 40px;
+      margin-top: 20px;
+      z-index: 1;
+      opacity: 0;
+      animation: fadebounce 2s ease-in-out 2s forwards;
+    }
+
+    @keyframes slidebg {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes slidein {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadebounce {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="logo">Concesionario PACO</div>
+  <div class="slogan">¡Nos los quitan de las manos!</div>
+</body>
+</html>
